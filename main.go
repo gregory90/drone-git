@@ -169,9 +169,11 @@ func fetch(b *plugin.Build, tags bool, depth int) *exec.Cmd {
 		"fetch",
 		tags_option,
 	)
+
 	if depth != 0 {
 		cmd.Args = append(cmd.Args, fmt.Sprintf("--depth=%d", depth))
 	}
+
 	cmd.Args = append(cmd.Args, "origin")
 	cmd.Args = append(cmd.Args, fmt.Sprintf("+%s:", b.Ref))
 
